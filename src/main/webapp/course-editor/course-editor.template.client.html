@@ -3,112 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <title>Editor</title>
+    <link href="../styles.css" rel="stylesheet">
+    <link href="../course-editor/course-editor.style.client.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 
 
-<body>
+<body class="course-editor-body">
 <div class="container">
 
-    <h1>Editor</h1>
-
-    <div class="row">
-        <div class="col-4">
-
-            <ul class="list-group">
-                <li class="list-group-item active">
-                    Module 1 <i class="pull-right fa fa-trash"></i>
-                </li>
-                <li class="list-group-item">
-                    Module 2 <i class="pull-right fa fa-trash"></i>
-                </li>
-                <li class="list-group-item">
-                    Module 3 <i class="pull-right fa fa-trash"></i>
-                </li>
-                <li class="list-group-item">
-                    Module 4 <i class="pull-right fa fa-trash"></i>
-                </li>
-                <li class="list-group-item">
-                    Module 5 <i class="pull-right fa fa-trash"></i>
-                </li>
-                <li class="list-group-item">
-                    Module 6 <i class="pull-right fa fa-trash"></i>
-                </li>
-                <li class="list-group-item">
-                    Module 7 <i class="pull-right fa fa-trash"></i>
-                </li>
-            </ul>
-
+    <div class="row header-text ce-header">
+        <div class="col-1">
+            <a href="../index.html"><i class="fa fa-times fa-2x course-editor-fa-color"></i></a>
         </div>
 
-        <div class="col-8">
-            <ul class="nav nav-tabs">
+        <div class="col-3 course-title">
+            <h2>cs5610: WebDev</h2>
+        </div>
 
+        <!-- Nav Topics Section -->
+        <div class="col-7">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">
+                        Topic 1
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">
-                        Active <i class="pull-right fa fa-trash"></i>
+                        Topic 2 <i class="pull-right fa fa-trash"></i>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">
-                        Link2
-<!--                        <i class="pull-right fa fa-trash"></i>-->
+                        Topic 3
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">
-                        Link3
-<!--                        <i class="pull-right fa fa-trash"></i>-->
-                    </a>
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link disabled" tabindex="-1" aria-disabled="true" href="#">
-                        Disabled
-                        <!--                        <i class="pull-right fa fa-trash"></i>-->
+                        Topic 4 (inactive)
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link disabled" tabindex="-1" aria-disabled="true" href="#">
-                        <i class="fa fa-plus"></i>
-                        <!--                        <i class="pull-right fa fa-trash"></i>-->
-                    </a>
-                </li>
-
             </ul>
+        </div>
 
+        <div class="col-1">
+            <a href="#" class="top-links-plus"><i class="fa fa-plus fa-2x"></i></a>
+        </div>
+    </div>
 
-            <br/>
+    <div class="row">
 
-
-            <ul class="nav nav-pills">
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Active</a>
+        <!-- Mods Section -->
+        <div class="col-4">
+            <ul class="list-group">
+                <li class="list-group-item active">
+                    Mod1 - jQuery <i class="pull-right fa fa-trash"></i>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Link2</a>
+                <li class="list-group-item">
+                    Mod2 - React <i class="pull-right fa fa-trash"></i>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Link3</a>
+                <li class="list-group-item">
+                    Mod3 - jQuery <i class="pull-right fa fa-trash"></i>
                 </li>
-
-                <li>
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <li class="list-group-item">
+                    Mod4 - Native <i class="pull-right fa fa-trash"></i>
                 </li>
-
+                <li class="list-group-item">
+                    Mod5 - Angular <i class="pull-right fa fa-trash"></i>
+                </li>
+                <li class="list-group-item">
+                    Mod6 - Node <i class="pull-right fa fa-trash"></i>
+                </li>
+                <li class="list-group-item">
+                    Mod7 - Mongo <i class="pull-right fa fa-trash"></i>
+                </li>
             </ul>
+        </div>
 
+        <!-- Pills Section -->
+        <div class="col-8">
+            <div class="pills-section">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Topic 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Topic 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Topic 3</a>
+                    </li>
+                    <li>
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Topic 4</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-plus"></i></a>
+                    </li>
+                </ul>
+            </div>
 
+            <div class="widget-placeholder">
+                Widget Placeholder
+            </div>
 
         </div>
 
+
+
+        <br/>
+
+    </div>
+
+
+    <br/>
+
+    <div>
+        <a href="../index.html">Cancel</a>
     </div>
 
 </div>

@@ -1,0 +1,20 @@
+
+.course-editor-body {
+    background-color: white;
+}
+
+.course-title {
+    display: inline;
+}
+
+.course-editor-fa-color {
+    color: black
+}
+
+.widget-placeholder {
+    color: black;
+    background-color: #e3e3e3;
+    padding-top; 40px;
+    margin-top: 20px;
+    height: 80%;
+}
