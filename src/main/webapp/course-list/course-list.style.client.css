@@ -1,0 +1,100 @@
+/*
+Hiding scrollbar with webkit based on suggest from stack overflow:
+https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
+*/
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+
+.sticky-add-button {
+    position: fixed;
+    z-index: 1;
+    right: 30px;
+    bottom: 30px;
+    color: white;
+    background-color: green;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.sticky-add-button a {
+    color: white;
+}
+
+
+.wbdv-sticky-top {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    color: white;
+    background-color: #4444ff;
+    padding: 10px;
+    padding-top: 15px;
+}
+
+.wbdv-sticky-top a {
+    color: white;
+}
+
+#dashboard-title-entry {
+    color: white;
+    font-style: italic;
+    background-color: #8888ff;
+    text-decoration: italics;
+    border: none;
+}
+
+#dashboard-title-entry::placeholder {
+    color: white;
+    font-style: italic;
+}
+
+
+.dashboard-body {
+    background-color: #e3e3e3;
+}
+
+.dashboard-card {
+    color: grey;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.dashboard-header {
+    /*
+    margin-top: 30px;
+    padding: 20px;
+    */
+    margin-top: 35px;
+    padding: 10px 0px;
+}
+
+.dashboard-header-container {
+    display: inline;
+}
+
+/* Kinda janky, but works */
+@media (max-width: 768px) {
+    .expand-on-md {
+        margin-top: 50px;
+    }
+}
+
+
+
+/*
+
+*/
+
