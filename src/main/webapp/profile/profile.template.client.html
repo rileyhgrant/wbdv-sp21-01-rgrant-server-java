@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
+    <link href="../styles.css" rel="stylesheet">
+    <link href="./profile.style.client.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 
@@ -11,14 +13,10 @@
 
 <div class="container">
 
-    <h1>Profile</h1>
-
-    <div class="alert alert-danger" role="alert">
-        Danger - Ack!
-    </div>
+    <h1 class="header-text">Profile</h1>
 
     <div class="alert alert-success" role="alert">
-        Yahoo - Success!
+        Profile successfully saved
     </div>
 
     <!-- Username -->
@@ -32,22 +30,10 @@
                    readonly
                    class="form-control"
                    id="username"
-                   value="alice"/>
+                   value="Alice Liddell"/>
         </div>
     </div>
 
-    <!-- Password -->
-    <div class="mb-3 row">
-        <label for="inputPassword" class="col-sm-2 col-form-label">
-            Password
-        </label>
-
-        <div class="col-sm-10">
-            <input type="password"
-                   class="form-control"
-                   id="inputPassword"/>
-        </div>
-    </div>
 
     <!-- Phone -->
     <div class="mb-3 row">
@@ -58,7 +44,8 @@
         <div class="col-sm-10">
             <input type="tel"
                    class="form-control"
-                   id="phone"/>
+                   id="phone"
+                   placeholder="(555) 123-4324"/>
         </div>
     </div>
 
@@ -72,7 +59,7 @@
             <input type="email"
                    class="form-control"
                    title="Please enter a valid email"
-                   placeholder="alice@wonderland.io"
+                   placeholder="a.liddell@wonderland.io"
                    id="email"/>
         </div>
     </div>
@@ -108,6 +95,20 @@
         </div>
     </div>
 
+    <!-- Update -->
+    <div class="mb-3 row">
+        <label for="update" class="col-sm-2 col-form-label">
+
+        </label>
+        <div class="col-sm-10">
+            <a class="btn btn-primary btn-block"
+               href="#"
+               id="update">
+                Update
+            </a>
+        </div>
+    </div>
+
     <!-- Logout -->
     <div class="mb-3 row">
         <label for="logout" class="col-sm-2 col-form-label">
@@ -115,21 +116,18 @@
         </label>
         <div class="col-sm-10">
             <a class="btn btn-danger btn-block"
-                href="../index.html"
-                id="logout">
+               href="../index.html"
+               id="logout">
                 Logout
             </a>
         </div>
     </div>
 
+    <hr/>
 
-<!--    <div>-->
-<!--        <a href="../index.html">Home</a>-->
-<!--    </div>-->
-
-</div>
-
-
+    <div>
+        <a href="../index.html">Cancel</a>
+    </div>
 
 </div>
 
