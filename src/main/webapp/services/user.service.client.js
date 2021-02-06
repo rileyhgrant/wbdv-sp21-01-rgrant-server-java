@@ -6,9 +6,9 @@ function AdminUserServiceClient() {
     this.updateUser = updateUser;
     this.url = 'https://wbdv-generic-server.herokuapp.com/api/001661897/users';
     var self = this;
-    function createUser(user) { … }
-    function findAllUsers() { … }
-    function findUserById(userId) { … }
-    function updateUser(userId, user) { … }
-    function deleteUser(userId) { … }
+    function createUser(user) { }
+    function findAllUsers() { }
+    function findUserById(userId) { }
+    function updateUser(userId, user) { }
+    function deleteUser(userId) { }
 }

@@ -20,7 +20,7 @@
     <!-- jQuery, service script, admin control script -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="../services/user.service.client.js"></script>
-    <script src="user-admin.controller.client.js"></script>
+    <script src="./user-admin.controller.client.js"></script>
 
 </head>
 
@@ -29,9 +29,9 @@
 <body>
 
 
-<div class="container">
+<div class="container-fluid wbdv-admin-page">
 
-
+    <h1>User Admin</h1>
 
     <div class="wbdv-user-table">
         <table class="table">
@@ -80,6 +80,19 @@
                 </span>
                 </td>
             </tr>
+            <tr class="wbdv-template wbdv-user wbdv-hidden">
+                <td class="wbdv-username">riley</td>
+                <td>&nbsp;</td>
+                <td class="wbdv-first-name">Riley</td>
+                <td class="wbdv-last-name">Grant</td>
+                <td class="wbdv-role">ADMIN</td>
+                <td class="wbdv-actions">
+                    <span class="pull-right">
+                    <i class="fa-2x fa fa-times wbdv-remove"></i>
+                    <i class="fa-2x fa fa-pencil wbdv-edit"></i>
+                </span>
+                </td>
+            </tr>
             </tbody>
         </table>
 
@@ -96,6 +109,7 @@
 
 
 </div>
+
 </body>
 
 </html>
