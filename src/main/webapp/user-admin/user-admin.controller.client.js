@@ -45,6 +45,10 @@
         $createBtn.click( () => {
             createUser();
         });
+
+        $editBtn.click( () => {
+            updateUser();
+        });
     }
 
 
@@ -77,6 +81,8 @@
         $roleFld.val( "STUDENT" );
     }
 
+
+
     function deleteUser( event ) {
         console.log( "called deleteUser" );
 
@@ -94,10 +100,40 @@
     }
 
 
+    var currSelectedUser = null;
+    function selectUser( event ) {
+        var $selectBtn = $( event.target );
+        var theId = $selectBtn.attr("id");
+        currSelectedUser = users.find( user => user._id === theId );
+
+        $usernameFld.val( currSelectedUser.username );
+        $passwordFld.val( "" );
+        $firstNameFld.val( currSelectedUser.firstname );
+        $lastNameFld.val( currSelectedUser.lastname );
+        $roleFld.val( currSelectedUser.role );
 
 
-    function selectUser() { }
-    function updateUser() { }
+    }
+
+
+
+    // user the currently selected user and update the data
+    function updateUser() {
+        console.log( currSelectedUser );
+
+        currSelectedUser.username = $usernameFld.val();
+        currSelectedUser.password = $passwordFld.val();
+        currSelectedUser.firstname = $firstNameFld.val();
+        currSelectedUser.lastname = $lastNameFld.val();
+        currSelectedUser.role = $roleFld.val();
+
+        userService.updateUser( currSelectedUser._id, currSelectedUser )
+            .then( function( status ) {
+                var index = users.findIndex( user => user._id === currSelectedUser._id );
+                users[index] = currSelectedUser;
+                renderUsers( users );
+            });
+    }
 
 
 
@@ -116,25 +152,15 @@
                     <td class="wbdv-actions">
                         <span class="pull-right">
                             <i id=${i} class="fa-2x fa fa-times wbdv-remove"></i>
-                            <i class="fa-2x fa fa-pencil wbdv-edit"></i>
+                            <i id=${user._id} class="fa-2x fa fa-pencil wbdv-edit"></i>
                         </span>
                     </td>
                 </tr>
             `)
         }
 
-        $(".wbdv-remove").click( deleteUser ); //{
-//        // TODO lots of console logging here still
-//            console.log( event.target );
-//            var $deleteBtn = $( event.target );
-//            var theClass = $deleteBtn.attr( "class" );
-//            var theId = $deleteBtn.attr( "id" );
-//            console.log( theClass );
-//            console.log( theId );
-//            users.splice( theId, 1 );
-//            renderUsers( users );
-
-//       });
+        $(".wbdv-remove").click( deleteUser );
+        $(".wbdv-edit").click( selectUser )
     }
 
 
