@@ -1,189 +1,3 @@
-//
-//// alert( "Testing" )
-//console.log( "script ran" )
-//
-//var header = jQuery("h1")
-//
-//header
-//    .click( function( event ) {
-//        console.log( event )
-//        header.remove()
-//       })
-//
-//
-//
-//var tableRows = jQuery(".wbdv-tbody")
-//tableRows.css( "background-color", "cyan" )
-//
-//
-//var users = [
-//    {
-//        username: "callum",
-//        firstname: "Callum",
-//        lastname: "Grant",
-//        role: "ADMIN",
-//    },
-//    {
-//        username: "fiona",
-//        firstname: "Fiona",
-//        lastname: "Grant",
-//        role: "ADMIN",
-//    }
-//]
-//
-//function renderUsers( users ) {
-//
-//    tableRows.empty()
-//
-//    for( var i=0; i<users.length; i++ ) {
-//        var user = users[i]
-//
-//        tableRows.prepend(`
-//        <tr class="wbdv-template wbdv-user wbdv-hidden">
-//            <td class="wbdv-username">${user.username}</td>
-//            <td>&nbsp;</td>
-//            <td class="wbdv-first-name">${user.firstname}</td>
-//            <td class="wbdv-last-name">${user.lastname}</td>
-//            <td class="wbdv-role">${user.role}</td>
-//            <td class="wbdv-actions">
-//                <span class="pull-right">
-//                    <i id=${i} class="fa-2x fa fa-times wbdv-remove"></i>
-//                    <i class="fa-2x fa fa-pencil wbdv-edit"></i>
-//                </span>
-//            </td>
-//        </tr>
-//    `)
-//    }
-//
-//    $(".wbdv-remove")
-//        .click( function( event ) {
-//            console.log( event.target );
-//            var $deleteBtn = $( event.target );
-//            var theClass = $deleteBtn.attr( "class" );
-//            var theId = $deleteBtn.attr( "id" );
-//            console.log( theClass );
-//            console.log( theId );
-//            users.splice( theId, 1 )
-//            renderUsers( users )
-//
-////            var button = $( event.target )
-////            var id = button.attr( "id" )
-////            console.log( id )
-////            console.log( event.target )
-////            users.splice( id, 1 )
-////            renderUsers( users )
-//        })
-//}
-//
-//function addCourse() {
-//    tableRows.append(`
-//        <tr class="wbdv-template wbdv-user wbdv-hidden">
-//            <td class="wbdv-username">callum</td>
-//            <td>&nbsp;</td>
-//            <td class="wbdv-first-name">Riley</td>
-//            <td class="wbdv-last-name">Grant</td>
-//            <td class="wbdv-role">ADMIN</td>
-//            <td class="wbdv-actions">
-//                <span class="pull-right">
-//                    <i class="fa-2x fa fa-times wbdv-remove"></i>
-//                    <i class="fa-2x fa fa-pencil wbdv-edit"></i>
-//                </span>
-//            </td>
-//        </tr>
-//    `)
-//}
-//
-//
-//
-//
-////function createUser() {
-////    $usernameFld = $( "#usernameFld" );
-////    $passwordFld = $( "#passwordFld" );
-////    $firstNameFld = $( "#firstNameFld" );
-////    $lastNameFld = $( "#lastNameFld" );
-////    $roleFld = $( "#roleFld" );
-////
-////    // handle click events
-////    var $createBtn = $( ".wbdv-create" );
-////
-////    $createBtn.click( function() {
-////        var newUser = {
-////            username: usernameFld.val(),
-////            firstname: firstNameFld.val(),
-////            lastname: lastNameFld.val(),
-////            role: roleFld.val()
-////        }
-////
-////        // TODO instead of doing this, have a 'createUser' thing, and then this
-////        //    on click, simply creates a course, then calls the helper
-////        users.push( newUser );
-////        renderUsers( users );
-////    });
-////
-////}
-//
-//var $usernameFld, $passwordFld;
-//var $firstNameFld, $lastNameFld, $roleFld;
-//var $createBtn;
-//
-//$usernameFld = $( "#usernameFld" );
-//$passwordFld = $( "#passwordFld" );
-//$firstNameFld = $( "#firstNameFld" );
-//$lastNameFld = $( "#lastNameFld" );
-//$roleFld = $( "#roleFld" );
-//
-//$createBtn = $( ".wbdv-create" );
-//
-//// on click for the create button
-//$createBtn.click( () => {
-//
-//    createUser( {
-//        username: $usernameFld.val(),
-//        password: $passwordFld.val(),
-//        firstname: $firstNameFld.val(),
-//        lastname: $lastNameFld.val(),
-//        role: $roleFld.val()
-//    });
-//
-//    emptyFields();
-//
-//});
-//
-//function emptyFields() {
-//    $usernameFld.val( "" );
-//    $passwordFld.val( "" );
-//    $firstNameFld.val( "" );
-//    $lastNameFld.val( "" );
-//    $roleFld.val( "STUDENT" );
-//}
-//
-//function createUser( newUser ) {
-//
-//    users.push( newUser );
-//    renderUsers( users );
-//}
-//
-//
-//
-////
-////var $createBtn = $( ".wbdv-create")
-////
-////// create button thing
-////$createBtn.click( function() {
-////    // alert( "clicked!" )
-////
-////    // addCourse()
-////
-////    var newCourse = {
-////        username: "callum",
-////        firstname: "Callum",
-////        lastname: "Grant",
-////        role: "ADMIN"
-////    }
-////
-////    users.push( newCourse )
-////    renderUsers( users )
-////})
 
 
 
@@ -220,13 +34,12 @@
         $tbody = $( "tbody" );
 
 
-        // call render users with the default from the server
-
-        // TODO really this should be an API call
-        users = [];
-
-        // render users with the recieved list
-        renderUsers( users );
+        // call to server to get list of users, save it into 'users' var
+        userService.findAllUsers()
+            .then( function( usersFromServer ) {
+                users = usersFromServer;
+                renderUsers( users );
+            });
 
         // add listener to create button
         $createBtn.click( () => {
@@ -246,10 +59,12 @@
             role: $roleFld.val()
         }
 
-        users.push( inputUser );
-        renderUsers( users );
-
-        clearFields();
+        userService.createUser( inputUser )
+            .then( function( returnedCourse ) {
+                users.push( returnedCourse );
+                renderUsers( users );
+                clearFields();
+            });
 
     }
 
@@ -264,11 +79,22 @@
 
     function deleteUser( event ) {
         console.log( "called deleteUser" );
+
         var $deleteBtn = $( event.target );
-        var theId = $deleteBtn.attr( "id" );
-        users.splice( theId, 1 );
-        renderUsers( users );
+        var theIndex = $deleteBtn.attr( "id" );
+        var theId = users[theIndex]._id;
+
+        // call user service to try and delete only actually delete if it succeeds
+        userService.deleteUser( theId )
+            .then( function ( status ) {
+                users.splice( theIndex, 1 );
+                renderUsers( users );
+            });
+
     }
+
+
+
 
     function selectUser() { }
     function updateUser() { }
