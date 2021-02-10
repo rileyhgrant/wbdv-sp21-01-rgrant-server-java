@@ -107,7 +107,7 @@
         currSelectedUser = users.find( user => user._id === theId );
 
         $usernameFld.val( currSelectedUser.username );
-        $passwordFld.val( "" );
+        $passwordFld.val( currSelectedUser.password );
         $firstNameFld.val( currSelectedUser.firstname );
         $lastNameFld.val( currSelectedUser.lastname );
         $roleFld.val( currSelectedUser.role );
@@ -145,7 +145,7 @@
             $tbody.prepend(`
                 <tr class="wbdv-template wbdv-user wbdv-hidden">
                     <td class="wbdv-username">${user.username}</td>
-                    <td>&nbsp;</td>
+                    <td class="wbdv-password">****</td>
                     <td class="wbdv-first-name">${user.firstname}</td>
                     <td class="wbdv-last-name">${user.lastname}</td>
                     <td class="wbdv-role">${user.role}</td>
