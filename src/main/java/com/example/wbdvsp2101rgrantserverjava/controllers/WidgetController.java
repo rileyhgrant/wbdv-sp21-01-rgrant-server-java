@@ -20,25 +20,9 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class WidgetController {
 
+
   @Autowired
   WidgetService service;
-
-
-
-  // GETS
-  // ======
-
-  @GetMapping( "/api/widgets" )
-  public List<Widget> findAllWidgets() {
-    return service.findAllWidgets();
-  }
-
-  @GetMapping( "/api/topics/{tid}/widgets" )
-  public List<Widget> findAllWidgetsForTopic (
-          @PathVariable("tid") String topicId
-  ) {
-    return service.findAllWidgetsForTopic( topicId );
-  }
 
 
 
@@ -53,8 +37,37 @@ public class WidgetController {
     return service.createWidget( topicId, w );
   }
 
+
+
+  // GETS
+  // ======
+
+  @GetMapping( "/api/topics/{tid}/widgets" )
+  public List<Widget> findWidgetsForTopic (
+          @PathVariable("tid") String topicId
+  ) {
+    return service.findWidgetsForTopic( topicId );
+  }
+
+  // Actually not used, as of now
+  @GetMapping( "/api/widgets" )
+  public List<Widget> findAllWidgets() {
+    return service.findAllWidgets();
+  }
+
+  // Also not used, as of now
+  @GetMapping( "/api/widgets/{wid}" )
+  public Widget findWidgetById(
+          @PathVariable("wid") Long widgetId
+  ) {
+    return service.findWidgetById( widgetId );
+  }
+
+
+
   // PUTS
   // ======
+
   @PutMapping( "/api/widgets/{wid}" )
   public Integer updateWidget(
           @PathVariable("wid") Long widgetId,
@@ -65,9 +78,8 @@ public class WidgetController {
 
 
 
-
-          // DELETE
-  // ======
+  // DELETES
+  // =========
 
   @DeleteMapping( "/api/widgets/{wid}" )
   public Integer deleteWidget(
@@ -75,6 +87,5 @@ public class WidgetController {
   ) {
     return service.deleteWidget( widgetId );
   }
-
 
 }

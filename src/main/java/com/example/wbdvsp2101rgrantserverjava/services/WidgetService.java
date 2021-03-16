@@ -13,6 +13,8 @@ import java.util.List;
 public class WidgetService {
   private List<Widget> widgets = new ArrayList<Widget>();
   {
+    // Dummy value all associated with a non-existent topic ID in the real data. Ima leave this
+    //   kinda just because.
     Widget w1 = new Widget( 123l, "ABC123", "HEADING", 1, "Widgets for topic ABC");
     Widget w2 = new Widget( 234l, "ABC123", "PARAGRAPH", 1, "Lorem Ipsum");
     Widget w3 = new Widget( 345l, "ABC234", "HEADING", 2, "Welcome to Widget List!");
@@ -27,11 +29,16 @@ public class WidgetService {
   }
 
 
-  public List<Widget> findAllWidgets() {
-    return widgets;
+
+  public Widget createWidget( String topicId, Widget w ) {
+    w.setTopicId( topicId );
+    w.setId(new Date().getTime());
+    widgets.add( w );
+    return w;
   }
 
-  public List<Widget> findAllWidgetsForTopic( String topicId ) {
+
+  public List<Widget> findWidgetsForTopic( String topicId ) {
     List<Widget> ws = new ArrayList<Widget>();
     for ( Widget w : widgets ) {
       if (w.getTopicId().equals( topicId )) {
@@ -39,13 +46,6 @@ public class WidgetService {
       }
     }
     return ws;
-  }
-
-  public Widget createWidget( String topicId, Widget w ) {
-    w.setTopicId( topicId );
-    w.setId(new Date().getTime());
-    widgets.add( w );
-    return w;
   }
 
 
@@ -60,16 +60,38 @@ public class WidgetService {
   }
 
 
+
   public Integer deleteWidget( Long widgetId ) {
-    int index = -1;
     for( int i = 0; i < widgets.size(); i++ ) {
       if(widgets.get(i).getId().equals(widgetId)) {
-        index = i;
-        widgets.remove(index);
+        widgets.remove(i);
         return 1;
       }
     }
     return -1;
   }
+
+  public List<Widget> findAllWidgets() {
+    return widgets;
+  }
+
+  public Widget findWidgetById( Long widgetId ) {
+    for( int i = 0; i < widgets.size(); i++ ) {
+      if(widgets.get(i).getId().equals(widgetId)) {
+        return widgets.get(i);
+      }
+    }
+    return null;
+  }
+
+
+
+
+
+
+
+
+
+
 
 }
