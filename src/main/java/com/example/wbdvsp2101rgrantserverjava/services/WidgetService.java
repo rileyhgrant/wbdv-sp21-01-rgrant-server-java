@@ -5,6 +5,7 @@ import com.example.wbdvsp2101rgrantserverjava.models.Widget;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -38,6 +39,37 @@ public class WidgetService {
       }
     }
     return ws;
+  }
+
+  public Widget createWidget( String topicId, Widget w ) {
+    w.setTopicId( topicId );
+    w.setId(new Date().getTime());
+    widgets.add( w );
+    return w;
+  }
+
+
+  public Integer updateWidget( Long widgetId, Widget w ) {
+    for( int i = 0; i < widgets.size(); i++ ) {
+      if(widgets.get(i).getId().equals(widgetId)) {
+        widgets.set(i, w);
+        return 1;
+      }
+    }
+    return -1;
+  }
+
+
+  public Integer deleteWidget( Long widgetId ) {
+    int index = -1;
+    for( int i = 0; i < widgets.size(); i++ ) {
+      if(widgets.get(i).getId().equals(widgetId)) {
+        index = i;
+        widgets.remove(index);
+        return 1;
+      }
+    }
+    return -1;
   }
 
 }
