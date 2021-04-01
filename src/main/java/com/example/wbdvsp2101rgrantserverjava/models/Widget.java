@@ -1,19 +1,32 @@
 package com.example.wbdvsp2101rgrantserverjava.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="widgets")
 public class Widget {
-  private String name;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
+  private String name;
   private String topicId;
   private String type;
   private Integer widgetOrder;
   private Integer size;
   private String text;
-  private Integer urlRef;
+  private String urlRef;
   private Integer width;
   private Integer height;
   private String cssClass;
   private String style;
   private String value;
+  private Boolean ordered;
 
 
   public String getName() {
@@ -32,11 +45,11 @@ public class Widget {
     this.widgetOrder = widgetOrder;
   }
 
-  public Integer getUrlRef() {
+  public String getUrlRef() {
     return urlRef;
   }
 
-  public void setUrlRef(Integer urlRef) {
+  public void setUrlRef(String urlRef) {
     this.urlRef = urlRef;
   }
 
@@ -120,6 +133,14 @@ public class Widget {
     this.text = text;
   }
 
+  public Boolean getOrdered() {
+    return ordered;
+  }
+
+  public void setOrdered(Boolean ordered) {
+    this.ordered = ordered;
+  }
+
 
   public Widget() {
   }
@@ -133,8 +154,8 @@ public class Widget {
   }
 
   public Widget(String name, Long id, String topicId, String type, Integer widgetOrder,
-                Integer size, String text, Integer urlRef, Integer width, Integer height,
-                String cssClass, String style, String value) {
+                Integer size, String text, String urlRef, Integer width, Integer height,
+                String cssClass, String style, String value, Boolean ordered) {
     this.name = name;
     this.id = id;
     this.topicId = topicId;
@@ -148,5 +169,6 @@ public class Widget {
     this.cssClass = cssClass;
     this.style = style;
     this.value = value;
+    this.ordered = ordered;
   }
 }
