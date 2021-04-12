@@ -13,7 +13,9 @@ public interface WidgetRepository
 
   // select * from wbdv_sp21_01_schema.widgets where topic_id=
 
-  @Query( value="select * from wbdv_sp21_01_schema.widgets where topic_id=:tid", nativeQuery = true)
+//  @Query( value="select * from wbdv_sp21_01_schema.widgets where topic_id=:tid", nativeQuery = true)
+
+  @Query( value="select * from p7cznbyiqlizgmsh.widgets where topic_id=:tid", nativeQuery = true)
   public List<Widget> findWidgetsForTopic( @Param("tid") String topicId );
 
 }
